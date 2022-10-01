@@ -29,10 +29,12 @@ const Nav = () => {
 
 const Wrapper = styled.div`
   .nav {
+    position: relative;
     background-color: ${(props) => (props.menuOpen ? "#fff" : "none")};
     color: ${(props) => (props.menuOpen ? "#000" : "#fff")};
     height: 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10;
   }
   .nav-container {
     display: flex;

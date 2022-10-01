@@ -87,8 +87,10 @@ const MenuBar = () => {
 
 const Wrapper = styled.div`
   .menu-bar {
+    position: relative;
     background-color: ${(props) => (props.menuOpen ? "#fff" : "none")};
     color: ${(props) => (props.menuOpen ? "#000" : "#fff")};
+    z-index: 10;
     .menu-container {
       display: flex;
       align-items: center;
@@ -141,6 +143,7 @@ const Wrapper = styled.div`
     background-color: #fff;
     border-top: 1px solid #e7e7eb;
     visibility: ${(props) => (props.menuOpen ? "visible" : "hidden")};
+    z-index: 10;
     .menu-content {
       display: flex;
       .left-side {
