@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const About = () => {
+  const [selectedData, setselectedData] = useState(0);
+  const data = [
+    {
+      img: "christina",
+      slNo: "1",
+      title:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    },
+    {
+      img: "bruce",
+      slNo: "2",
+      title:
+        "Labore et dolore magna aliqua. tempor incididunt ut labore et dolore magna aliqua.",
+      description:
+        "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur.",
+    },
+  ];
   return (
     <Wrapper>
       <div className="heading">
@@ -13,61 +32,89 @@ const About = () => {
           minim veniam, quis nostrud exercitation.
         </p>
       </div>
-      <div className="container">
-        <div className="about-main">
-          <div className="left-content">
-            <div className="portrait">
-              <img src={process.env.PUBLIC_URL + "/images/christina.jpg"} />
-            </div>
-            <div className="rect">
-              <h1>1</h1>
-              <br />
-              <p>/FOUR</p>
-              <div className="arrowBTN">
-                <svg
-                  width="248"
-                  height="248"
-                  viewBox="0 0 248 248"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      <AnimatePresence exitBeforeEnter>
+        <div className="container">
+          <div className="about-main">
+            <div className="left-content">
+              <div className="portrait">
+                <motion.img
+                  initial={{ scale: 0.7, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{
+                    ease: [0.6, 0.01, -0.05, 0.95],
+                    duration: 1,
+                    delay: 0,
+                  }}
+                  key={selectedData}
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/images/" +
+                    data[selectedData].img +
+                    ".jpg"
+                  }
+                />
+              </div>
+              <div className="rect">
+                <h1>{data[selectedData].slNo}</h1>
+                <br />
+                <p>/FOUR</p>
+                <div
+                  className="arrowBTN"
+                  onClick={() =>
+                    selectedData == 0 ? setselectedData(1) : setselectedData(0)
+                  }
                 >
-                  <circle cx="124" cy="124" r="123.5" stroke="#ECECEC" />
-                </svg>
-                <div className="arrow">
                   <svg
-                    width="48"
-                    height="15"
-                    viewBox="0 0 48 15"
+                    width="248"
+                    height="248"
+                    viewBox="0 0 248 248"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M41 1L47 7.5L41 14" stroke="black" />
-                    <line
-                      x1="47"
-                      y1="7.5"
-                      x2="-4.37114e-08"
-                      y2="7.5"
-                      stroke="black"
-                    />
+                    <circle cx="124" cy="124" r="123.5" stroke="#ECECEC" />
                   </svg>
+                  <div className="arrow">
+                    <svg
+                      width="48"
+                      height="15"
+                      viewBox="0 0 48 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M41 1L47 7.5L41 14" stroke="black" />
+                      <line
+                        x1="47"
+                        y1="7.5"
+                        x2="-4.37114e-08"
+                        y2="7.5"
+                        stroke="black"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="right-content">
-            <h1>
-              Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation.
-            </p>
-            <div className="button">LEARN MORE</div>
+            <div className="right-content">
+              <h1>{data[selectedData].title}</h1>
+
+              <motion.p
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  ease: [0.6, 0.01, -0.05, 0.95],
+                  duration: 1,
+                  delay: 0,
+                }}
+                key={selectedData}
+              >
+                {data[selectedData].description}
+              </motion.p>
+
+              <div className="button">LEARN MORE</div>
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatePresence>
     </Wrapper>
   );
 };
