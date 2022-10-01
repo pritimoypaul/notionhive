@@ -10,10 +10,10 @@ const Blogs = () => {
         <h1 className="title">BLOG</h1>
         <HorizontalScroll>
           <div className="main">
-            <BlogCard image="Project1" title="Lorem ipsom dolor" />
-            <BlogCard image="Project2" title="Consectetur adipiscing sed do" />
+            <BlogCard image="blog1" title="Lorem ipsom dolor" />
+            <BlogCard image="blog2" title="Consectetur adipiscing sed do" />
             <BlogCard
-              image="Project3"
+              image="blog3"
               title="Minim veniam, quis nostrud exercitation"
             />
             <BlogCard image="Project1" title="Lorem ipsom dolor" />
