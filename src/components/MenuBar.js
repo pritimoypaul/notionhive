@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useRecoilState } from "recoil";
+import { menuOpenState } from "../Store";
 
 const MenuBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
   return (
     <div>
       <Wrapper menuOpen={menuOpen}>

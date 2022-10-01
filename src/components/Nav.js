@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { PhoneIcon } from "@heroicons/react/24/outline";
+import { useRecoilState } from "recoil";
+import { menuOpenState } from "../Store";
 
 const Nav = () => {
+  const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
+
   return (
     <div>
-      <Wrapper>
+      <Wrapper menuOpen={menuOpen}>
         <div className="nav">
           <div className="container nav-container">
             <div className="call-us">
@@ -25,8 +29,8 @@ const Nav = () => {
 
 const Wrapper = styled.div`
   .nav {
-    background-color: none;
-    color: #fff;
+    background-color: ${(props) => (props.menuOpen ? "#fff" : "none")};
+    color: ${(props) => (props.menuOpen ? "#000" : "#fff")};
     height: 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
