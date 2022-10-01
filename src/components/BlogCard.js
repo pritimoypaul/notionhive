@@ -20,7 +20,7 @@ const BlogCard = ({ image, title }) => {
 const Wrapper = styled.div`
   .blog-img {
     position: relative;
-    width: 540px;
+    width: 500px;
     height: 270px;
     .img {
       width: 100%;

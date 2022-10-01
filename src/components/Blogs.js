@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import HorizontalScroll from "react-horizontal-scrolling";
 import BlogCard from "./BlogCard";
 
 const Blogs = () => {
@@ -7,15 +8,17 @@ const Blogs = () => {
     <Wrapper>
       <div className="container">
         <h1 className="title">BLOG</h1>
-        <div className="main">
-          <BlogCard image="Project1" title="Lorem ipsom dolor" />
-          <BlogCard image="Project2" title="Consectetur adipiscing sed do" />
-          <BlogCard
-            image="Project3"
-            title="Minim veniam, quis nostrud exercitation"
-          />
-          <BlogCard image="Project1" title="Lorem ipsom dolor" />
-        </div>
+        <HorizontalScroll>
+          <div className="main">
+            <BlogCard image="Project1" title="Lorem ipsom dolor" />
+            <BlogCard image="Project2" title="Consectetur adipiscing sed do" />
+            <BlogCard
+              image="Project3"
+              title="Minim veniam, quis nostrud exercitation"
+            />
+            <BlogCard image="Project1" title="Lorem ipsom dolor" />
+          </div>
+        </HorizontalScroll>
       </div>
     </Wrapper>
   );
@@ -23,7 +26,7 @@ const Blogs = () => {
 
 const Wrapper = styled.div`
   background-color: #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
   .title {
     padding-top: 80px;
     padding-bottom: 40px;
