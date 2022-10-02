@@ -1041,6 +1041,12 @@ const Wrapper = styled.div`
     max-width: 650px;
     margin: 24px auto;
   }
+  svg {
+    path:hover {
+      cursor: pointer;
+      fill: #ea4715;
+    }
+  }
 `;
 
 export default Branches;

@@ -45,9 +45,9 @@ const Wrapper = styled.div`
     color: #fff;
   }
   .projects {
-    width: 110%;
+    position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 

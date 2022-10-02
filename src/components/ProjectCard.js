@@ -5,37 +5,31 @@ import { motion } from "framer-motion";
 const ProjectCard = ({ photo, title }) => {
   return (
     <Wrapper>
-      <motion.div
-        initial={{ x: 0, y: 0 }}
-        whileHover={{ x: -60, y: -176 }}
-        transition={{
-          ease: [0.6, 0.01, -0.05, 0.95],
-          duration: 0.6,
-          delay: 0,
-        }}
-        className="card"
-      >
-        <div className="img-card">
-          <img src={process.env.PUBLIC_URL + "/images/" + photo + ".jpg"} />
-        </div>
+      <div className="proCard">
         <div className="main-title">
           <h1>{title}</h1>
         </div>
-        <div className="details">
-          <div className="content">
-            <div className="plusBTN">+</div>
-            <h1>{title}</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore
-            </p>
-            <br />
+        <div className="card">
+          <div className="img-card">
+            <img src={process.env.PUBLIC_URL + "/images/" + photo + ".jpg"} />
+          </div>
 
-            <br />
-            <p>928 367 3789</p>
+          <div className="details">
+            <div className="content">
+              <div className="plusBTN">+</div>
+              <h1>{title}</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore
+              </p>
+              <br />
+
+              <br />
+              <p>928 367 3789</p>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Wrapper>
   );
 };
@@ -43,17 +37,17 @@ const ProjectCard = ({ photo, title }) => {
 const Wrapper = styled.div`
   .card:hover {
     position: relative;
+    width: 416px;
+    height: 576px;
+    transform: translate(0px, -166px);
     .img-card {
       width: 416px;
     }
-    .main-title {
-      visibility: hidden;
-    }
 
     .details {
-      visibility: visible;
       position: absolute;
       transform: translate(0px, -250px);
+      opacity: 100;
       width: 416px;
       height: 300px;
       background-color: #393939;
@@ -61,6 +55,7 @@ const Wrapper = styled.div`
         margin-top: -30px;
         padding-left: 27px;
         padding-top: 34px;
+        transform: translate(0px, 0px);
         .plusBTN {
           display: flex;
           align-items: center;
@@ -93,22 +88,43 @@ const Wrapper = styled.div`
 
   .card {
     position: relative;
-    margin-top: 70px;
-    transform: translate(0px, 70px);
+    width: 280px;
+    height: 350px;
+    margin-top: 60px;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
     .img-card {
       width: 280px;
+      transition: all 0.5s ease-out;
     }
+
+    .details {
+      transform: translate(0px, 0px);
+      opacity: 0;
+      transition: all 0.7s ease-out;
+      .content {
+        transition: all 0.8s ease-out;
+        transform: translate(0px, 250px);
+      }
+    }
+  }
+  .proCard {
+    position: relative;
     .main-title {
-      visibility: visible;
+      transition: all 0.1s ease-out;
       position: absolute;
-      top: 190px;
+      top: 200px;
       left: -35px;
+      opacity: 1;
+      z-index: 10;
       h1 {
         font-size: 32px;
       }
     }
-    .details {
-      visibility: hidden;
+  }
+  .proCard:hover {
+    .main-title {
+      opacity: 0;
     }
   }
 `;
