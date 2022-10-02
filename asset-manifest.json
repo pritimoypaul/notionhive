@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/notionhive/static/css/main.e4b14cae.css",
-    "main.js": "/notionhive/static/js/main.6b6da241.js",
+    "main.js": "/notionhive/static/js/main.824b862c.js",
     "index.html": "/notionhive/index.html",
     "main.e4b14cae.css.map": "/notionhive/static/css/main.e4b14cae.css.map",
-    "main.6b6da241.js.map": "/notionhive/static/js/main.6b6da241.js.map"
+    "main.824b862c.js.map": "/notionhive/static/js/main.824b862c.js.map"
   },
   "entrypoints": [
     "static/css/main.e4b14cae.css",
-    "static/js/main.6b6da241.js"
+    "static/js/main.824b862c.js"
   ]
 }
